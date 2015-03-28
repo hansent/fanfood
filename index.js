@@ -28,7 +28,7 @@ var User = mongoose.model('User', {
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.post('/api/post_message', function(request, response) {
+app.post('/sms', function(request, response) {
   response.send('Hello World!');
 });
 
