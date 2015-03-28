@@ -16,14 +16,14 @@ var db = null;
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(request, response) {
+app.get('/', function(req, res) {
     var messages = db.collection('documents');
     messages.find({}).toArray(function(err, docs) {
-        response.json(docs);
+        res.json(docs);
     });   
 });
 
-app.all('/sms', function(request, response) {
+app.all('/sms', function(req, res) {
     var phone_num = req.body.From;
     var message = req.body.Body;
 
