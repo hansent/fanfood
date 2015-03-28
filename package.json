@@ -1,6 +1,6 @@
 {
   "name": "fanfood",
-  "version": "0.1",
+  "version": "0.0.1",
   "description": "getting food to fans that want to watch the game instead of standing in line",
   "main": "index.js",
   "scripts": {
