@@ -21,7 +21,7 @@ mongodb.MongoClient.connect(app.get('mongo_uri'), function(err, database) {
 
 
 app.get('/messages', function(req, res) {
-    var messages = db.collection('documents');
+    var messages = db.collection('messages');
     messages.find({}).toArray(function(err, docs) {
         res.json(docs);
     });   
