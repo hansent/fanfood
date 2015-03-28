@@ -1,7 +1,7 @@
 {
   "name": "fanfood",
-  "version": "0.1.2",
-  "description": "food for fans that want to watch the game instead of standing in line",
+  "version": "0.1",
+  "description": "getting food to fans that want to watch the game instead of standing in line",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -16,10 +16,5 @@
     "type": "git",
     "url": "https://github.com/hansent/fanfood"
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
   "license": "MIT"
 }
