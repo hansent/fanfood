@@ -31,7 +31,7 @@ app.all('/sms', function(request, response) {
     messages.insert({"user": phone_num, "message": message});
 
     var resp = new twilio.TwimlResponse();
-    // resp.message('Thanks for subscribing!');
+    resp.message('Thanks for subscribing!');
     res.writeHead(200, {'Content-Type':'text/xml'});
     res.end(resp.toString());
 });
