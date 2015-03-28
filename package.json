@@ -7,7 +7,9 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "body-parser": "^1.12.2",
     "express": "~4.9.x",
+    "mongodb": "^2.0.25",
     "mongoose": "^4.0.0",
     "twilio": "^1.11.1"
   },

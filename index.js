@@ -1,42 +1,46 @@
-var mongoose = require ("mongoose"); 
+// var mongoose = require ("mongoose"); 
+var mongodb = require('mongodb');
+var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-mongoose.connect(process.env.MONGOLAB_URI, function (err, res) {
-  if (err) { 
-    console.log ('ERROR connecting to: ' + process.env.MONGOLAB_URI + '. ' + err);
-  } else {
-    console.log ('Succeeded connected to: ' + process.env.MONGOLAB_URI);
-  }
-});
-
-
-var User = mongoose.model('User', { 
-    phone: String,
-    seat: String,
-    messages: [{ 
-        text: String, 
-        time: { type: Date, default: Date.now },
-        done: Boolean 
-    }],
-
-});
-
+//connection intialized when server is started
+var db = null;
 
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.post('/', function(request, response) {
-  response.send('Hello World!');
+app.get('/', function(request, response) {
+    var messages = db.collection('documents');
+    messages.find({}).toArray(function(err, docs) {
+        response.json(docs);
+    });   
 });
 
 app.all('/sms', function(request, response) {
-    console.log(request);
-    response.send("OK");
+    var phone_num = req.body.From;
+    var message = req.body.Body;
+
+    var messages = db.collection('documents');
+    messages.insert({"user": phone_num, "message": message});
+
+    var resp = new twilio.TwimlResponse();
+    // resp.message('Thanks for subscribing!');
+    res.writeHead(200, {'Content-Type':'text/xml'});
+    res.end(resp.toString());
 });
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'));
+
+var MongoClient = require('mongodb').MongoClient;
+MongoClient.connect(process.env.MONGOLAB_URI, function(err, database) {
+  if(err) throw err;
+  db = database;
+  app.listen(app.get('port'));
 });
+
