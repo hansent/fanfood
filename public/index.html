@@ -68,43 +68,81 @@
     	<ul class="orders">
     		<li>
     			<div class="order" contenteditable="true">
-    				<h5>1:37</h5>
+    				<!--<h5>1:37</h5>-->
     				<h3>Hamburger, Hot Dog, Peanuts</h3>
     				
     			</div>
     			
     			<div class="buyer">
-	    			<h3>
-	    			Sec. F, R32, S5</h3>
+	    			<h3>Sec. F, R32, S5</h3>
     			</div>
     			<div class="status">
     				<h3>Pending</h3>
     			</div>
     			<div class="action">
-    				<a href="#" class="button"><i class="fa fa-arrow-down fa-2"></i></a>
+    				<a href="#" class="button"><i class="fa fa-arrow-down fa-2"></i><i class="fa fa-arrow-up fa-2"></i></a>
     			</div>
     			
     			<div class="log">
+    			<h3>319-555-1234</h3>
     				<ul>
-    					<li class="message">Message text 1</li>
-    					<li class="message">Message text 2</li>
-    					<li class="message">Message text 3</li>
-    					<li class="message">Message text 4</li>
+    					<li class="message incoming"><i class="fa fa-comment-o fa-2"></i>Message text 1</li>
+    					<li class="message outgoing"><i class="fa fa-comment fa-2"></i>Message text 2</li>
+    					<li class="message outgoing"><i class="fa fa-comment fa-2"></i>Message text 3</li>
+    					<li class="message incoming"><i class="fa fa-comment-o fa-2"></i>Message text 4</li>
     				</ul>
-    				blah
     				<div class="response">
-    					<input id="responseText" type="text" class=""></input>
-    					<a href="#" class="button">Respond</a>
+    				<label id="responseLabel">Respond</label>
+    					<textarea id="responseText" class="responseText"></textarea>
+    					<a href="#" class="button">Send</a>
     				</div>
     				
     			</div>
-    			
     		</li>
+    		
+    		
+    		<li>
+    			<div class="order" contenteditable="true">
+    				<!--<h5>1:37</h5>-->
+    				<h3>Hamburger, Hot Dog, Peanuts</h3>
+    				
+    			</div>
+    			
+    			<div class="buyer">
+	    			<h3>Sec. F, R32, S5</h3>
+    			</div>
+    			<div class="status">
+    				<h3>Pending</h3>
+    			</div>
+    			<div class="action">
+    				<a href="#" class="button"><i class="fa fa-arrow-down fa-2"></i><i class="fa fa-arrow-up fa-2"></i></a>
+    			</div>
+    			
+    			<div class="log">
+    			<h3>319-555-1234</h3>
+    				<ul>
+    					<li class="message incoming"><i class="fa fa-comment-o fa-2"></i>Message text 1</li>
+    					<li class="message outgoing"><i class="fa fa-comment fa-2"></i>Message text 2</li>
+    					<li class="message outgoing"><i class="fa fa-comment fa-2"></i>Message text 3</li>
+    					<li class="message incoming"><i class="fa fa-comment-o fa-2"></i>Message text 4</li>
+    				</ul>
+    				<div class="response">
+    				<label id="responseLabel">Respond</label>
+    					<textarea id="responseText" class="responseText"></textarea>
+    					<a href="#" class="button">Send</a>
+    				</div>
+    				
+    			</div>
+    		</li>
+    		
+    		
     	
     	</ul>
     </section>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    	<script src="js/charCount.js" type="text/javascript"></script>
     	<script src="js/app.js" type="text/javascript"></script>
-		<script src="js/picturefill.js" type="text/javascript"></script>
+		
 <!-- google analytics -->
 
 <!-- end google analytics -->

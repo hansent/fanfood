@@ -17,16 +17,28 @@ ul.orders {list-style: none; padding: 0; margin: 0;
 		}
 		.action { /*float: right;*/ width: 2em;
 			.button {padding: 0.5em 0; width: 100%; text-align: center;}
+			.fa-arrow-up {display: none;}
 		}
 		ul {padding: 0; margin: 0; list-style: none;}
 	}
-	.log {width: 100%; /*background: pink;*/ margin-top: 1em; padding-top: 1em; border-top: solid 1px #ffffff; font-size: 0.75em;}
-	.message {width: 100%; /*background: blue;*/ font-style: italic; background-color: #ffffff;
-		&:nth-child(odd) {/*background: red;*/ opacity: 0.5;}
+	.log {width: 100%; /*background: pink;*/ margin-top: 1em; padding-top: 1em; border-top: solid 1px #ffffff; font-size: 0.75em; display: none;
+		h3 {margin-bottom: 0.5em;}
 	}
-	
+	.message {width: 100%; /*background: blue;*/ font-style: italic; background-color: #ffffff; margin-bottom: 0.5em;
+		i {margin-right: 1em;}
+		&:nth-child(odd) {background-color: #f4f4f4;}
+		&.outgoing {
+			.fa-comment {color: $siteOrange;}
+		}
+	}
 }
 
+.response { width: 100%; margin-top: 1em; 
+	textarea {background-color: #ffffff; line-height: 1.5em; font-size: 1.25em; color: $siteDarkGrey; @include rounded(10px); padding: 1em;}
+	.button {font-size: 1em;}
+}
+
+.counter {display: block; float: right; font-size: 1em; text-align: right;}
 
 
 
@@ -45,13 +57,14 @@ ul.orders {list-style: none; padding: 0; margin: 0;
 @media only screen and (min-width: #{$tabletBreakpoint}) {
 	ul.orders {
 		li {
-			div { float: left; /*background: aqua;*/ margin-right: 1%; border-bottom: 0; margin-bottom: 0;
-				&.order { width: 60%; margin-bottom: 0;}
+			div { float: left; /*background: aqua;*/ margin-right: 1%; border-bottom: 0; margin-bottom: 0; padding-bottom: 0;
+				&.order { width: 60%; margin-bottom: 0; padding-bottom: 0;}
 				&.buyer { width: 20%; margin-bottom: 0;}
 				&.status { width: calc(17% - 2em); margin-right: 1%; }
 				&.action { margin-right: 0; }
 			
 			}
+			h3 {margin-bottom: 0;}
 			
 		}
 	}

@@ -405,7 +405,7 @@ textarea,
 .textbox {
 	display: block;
 	width: 100%;
-	@include css3-calc('width', '100% - .5em');
+	//@include css3-calc('width', '100% - .5em');
 	//max-width: $textboxMaxWidth;
 	padding: $textboxPadding;
 	margin-bottom: $baselineHeight;
@@ -413,7 +413,7 @@ textarea,
 	border: $textboxBorderWidth $textboxBorderStyle $textboxBorderColor;
 	color: $textboxColor;
 	font-size: .875em;
-	@include box-shadow(.5em .125em 0 darken($textboxBackground, 5%));
+	//@include box-shadow(.5em .125em 0 darken($textboxBackground, 5%));
 	font-family: $baseFont;
 
 	&:active,

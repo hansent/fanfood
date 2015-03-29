@@ -429,18 +429,12 @@ textarea,
 .textbox {
   display: block;
   width: 100%;
-  width: -moz-calc(100% - .5em);
-  width: -webkit-calc(100% - .5em);
-  width: calc(100% - .5em);
   padding: 0.375em 1.5em;
   margin-bottom: 1.35em;
   background-color: #e2e2e2;
   border: 1px solid #e2e2e2;
   color: #313732;
   font-size: .875em;
-  -webkit-box-shadow: 0.5em 0.125em 0 #d5d5d5;
-  -moz-box-shadow: 0.5em 0.125em 0 #d5d5d5;
-  box-shadow: 0.5em 0.125em 0 #d5d5d5;
   font-family: "Helvetica Neue", sans-serif; }
   input[type="text"]:active, input[type="text"]:focus,
   input[type="date"]:active,
@@ -786,6 +780,8 @@ ul.orders {
         padding: 0.5em 0;
         width: 100%;
         text-align: center; }
+      ul.orders li .action .fa-arrow-up {
+        display: none; }
     ul.orders li ul {
       padding: 0;
       margin: 0;
@@ -796,15 +792,44 @@ ul.orders {
     margin-top: 1em;
     padding-top: 1em;
     border-top: solid 1px #ffffff;
-    font-size: 0.75em; }
+    font-size: 0.75em;
+    display: none; }
+    ul.orders .log h3 {
+      margin-bottom: 0.5em; }
   ul.orders .message {
     width: 100%;
     /*background: blue;*/
     font-style: italic;
-    background-color: #ffffff; }
+    background-color: #ffffff;
+    margin-bottom: 0.5em; }
+    ul.orders .message i {
+      margin-right: 1em; }
     ul.orders .message:nth-child(odd) {
-      /*background: red;*/
-      opacity: 0.5; }
+      background-color: #f4f4f4; }
+    ul.orders .message.outgoing .fa-comment {
+      color: #f0611f; }
+
+.response {
+  width: 100%;
+  margin-top: 1em; }
+  .response textarea {
+    background-color: #ffffff;
+    line-height: 1.5em;
+    font-size: 1.25em;
+    color: #313732;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-clip: padding-box;
+    padding: 1em; }
+  .response .button {
+    font-size: 1em; }
+
+.counter {
+  display: block;
+  float: right;
+  font-size: 1em;
+  text-align: right; }
 
 @media only screen and (min-width: 47.5em) {
   ul.orders li div {
@@ -812,10 +837,12 @@ ul.orders {
     /*background: aqua;*/
     margin-right: 1%;
     border-bottom: 0;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    padding-bottom: 0; }
     ul.orders li div.order {
       width: 60%;
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      padding-bottom: 0; }
     ul.orders li div.buyer {
       width: 20%;
       margin-bottom: 0; }
@@ -823,4 +850,6 @@ ul.orders {
       width: calc(17% - 2em);
       margin-right: 1%; }
     ul.orders li div.action {
-      margin-right: 0; } }
+      margin-right: 0; }
+  ul.orders li h3 {
+    margin-bottom: 0; } }
