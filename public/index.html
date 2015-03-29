@@ -142,7 +142,23 @@
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     	<script src="js/charCount.js" type="text/javascript"></script>
     	<script src="js/app.js" type="text/javascript"></script>
-		
+    	<script>
+    	$(document).ready(function(){
+	$( ".action .button" ).click(function() {	  
+	  $(this).parent().next( ".log" ).slideToggle( "slow", function() {});
+	  $(this).children(".fa-arrow-up").toggle();
+	  $(this).children(".fa-arrow-down").toggle();
+	});
+
+
+	$(".responseText").charCount({
+	    allowed: 125,		
+	    warning: 20,
+	    counterText: 'Characters left: '	
+	});
+
+});
+		</script>
 <!-- google analytics -->
 
 <!-- end google analytics -->

@@ -1,9 +1,17 @@
 // var mongoose = require ("mongoose"); 
 var mongodb = require('mongodb');
 var bodyParser = require('body-parser');
-var browserify = require('browserify-middleware');
 var express = require('express');
 var twilio = require('twilio');
+
+var browserify = require('browserify-middleware');
+
+browserify.settings({
+  ignoreMissing: true,
+  insertGlobals: true,
+  transform: ['browserify-ejs']
+});
+
 
 var app = express();
 
@@ -15,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
-app.use('/bundle.js', browserify(__dirname + '/public/index.js'));
+app.use('/js/app.js', browserify(__dirname + '/client.js'));
 
 var db = null;
 mongodb.MongoClient.connect(app.get('mongo_uri'), function(err, database) {
@@ -25,9 +33,9 @@ mongodb.MongoClient.connect(app.get('mongo_uri'), function(err, database) {
 });
 
 
-app.get('/messages', function(req, res) {
-    var messages = db.collection('messages');
-    messages.find({}).toArray(function(err, docs) {
+app.get('/orders', function(req, res) {
+    var orders = db.collection('messages');
+    orders.find({}).toArray(function(err, docs) {
         res.json(docs);
     });   
 });
@@ -37,8 +45,8 @@ app.post('/sms', function(req, res) {
     var phone_num = req.body.From;
     var text = req.body.Body;
 
-    var messages = db.collection('messages');
-    messages.update(
+    var orders = db.collection('messages');
+    orders.update(
         {"from": phone_num},
         {$push: {"messages": text}}, 
         {upsert:true}
