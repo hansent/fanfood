@@ -1,0 +1,72 @@
+//Main Styles
+
+
+ul.orders {list-style: none; padding: 0; margin: 0;
+	li {@include clearfix(); background-color: $siteLightGrey; padding: 1em; @include rounded(10px);
+		div {padding-bottom: 0.25em; border-bottom: solid 1px #ffffff;}
+		h5 {margin-bottom: 0;}
+		.order, .buyer {margin-bottom: 0.5em;}
+		.order {
+			h3 {font-weight: 400;}
+		}
+		.status, .action {float: left; border-bottom: 0; padding-bottom: 0;}
+		.status {margin-right: 1em;
+			h3 {font-size: 0.875em; text-align: center; padding: 0.25em 0;
+				&.pending {background-color: #ef662f;}
+			}
+		}
+		.action { /*float: right;*/ width: 2em;
+			.button {padding: 0.5em 0; width: 100%; text-align: center;}
+		}
+		ul {padding: 0; margin: 0; list-style: none;}
+	}
+	.log {width: 100%; /*background: pink;*/ margin-top: 1em; padding-top: 1em; border-top: solid 1px #ffffff; font-size: 0.75em;}
+	.message {width: 100%; /*background: blue;*/ font-style: italic; background-color: #ffffff;
+		&:nth-child(odd) {/*background: red;*/ opacity: 0.5;}
+	}
+	
+}
+
+
+
+
+@media only screen and (min-width: #{$largeMobileBreakpoint}) {
+
+
+}
+
+
+
+@media only screen and (min-width: #{$smallTabletBreakpoint}) {
+	
+
+}
+
+@media only screen and (min-width: #{$tabletBreakpoint}) {
+	ul.orders {
+		li {
+			div { float: left; /*background: aqua;*/ margin-right: 1%; border-bottom: 0; margin-bottom: 0;
+				&.order { width: 60%; margin-bottom: 0;}
+				&.buyer { width: 20%; margin-bottom: 0;}
+				&.status { width: calc(17% - 2em); margin-right: 1%; }
+				&.action { margin-right: 0; }
+			
+			}
+			
+		}
+	}
+
+}
+
+@media only screen and (min-width: #{$desktopBreakpoint}) {
+	
+
+}
+
+
+@media only screen and (min-width: #{$widescreenBreakpoint}) {
+
+	
+}
+
+

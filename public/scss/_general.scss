@@ -1,0 +1,14 @@
+html {
+	height: 100%;
+	//@include vertical(#76bcb1, #018d72);
+	//background-repeat: no-repeat;
+	//background-attachment: fixed;
+}
+body {
+	background: none;
+	font-size: $textFontSize;
+}
+
+h1, h2, h3, h4, h5, h6 {color: $headingColor;}
+
+.wrapper {@include default-padding(); max-width: 1260px; margin: 0 auto;}
