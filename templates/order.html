@@ -1,0 +1,33 @@
+<li>
+    <div class="order" contenteditable="true">
+    <h5><%= from %></h5>
+        <h3><%=messages[0] %></h3>
+
+    </div> 
+
+    <div class="buyer">
+        <h3>
+            Sec. F, R32, S5</h3>
+        </div>
+        <div class="status">
+            <h3>Pending</h3>
+        </div>
+        <div class="action">
+            <a href="#" class="button"><i class="fa fa-arrow-down fa-2"></i></a>
+        </div>
+
+        <div class="log">
+            <ul>
+                <% for(var i=0; i<messages.length; i++) { %>
+                    <li class="message"><%= messages[i] %></li>            
+                <% } %>
+            </ul>
+ 
+            <div class="response">
+                <input id="responseText" type="text" class=""></input>
+                <a href="#" class="button">Respond</a>
+            </div>
+
+        </div>
+
+    </li>
