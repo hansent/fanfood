@@ -1,6 +1,7 @@
 // var mongoose = require ("mongoose"); 
 var mongodb = require('mongodb');
 var bodyParser = require('body-parser');
+var browserify = require('browserify-middleware');
 var express = require('express');
 var twilio = require('twilio');
 
@@ -8,9 +9,13 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 app.set('mongo_uri', process.env.MONGOLAB_URI);
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
+
+app.use('/bundle.js', browserify(__dirname + '/public/index.js'));
 
 var db = null;
 mongodb.MongoClient.connect(app.get('mongo_uri'), function(err, database) {
@@ -40,7 +45,7 @@ app.post('/sms', function(req, res) {
     );
 
     var resp = new twilio.TwimlResponse();
-    resp.message("got it! we'll process your order asap :)");
+    resp.message("Got it! We'll process your order ASAP :)");
     res.writeHead(200, {'Content-Type':'text/xml'});
     res.end(resp.toString());
 });
